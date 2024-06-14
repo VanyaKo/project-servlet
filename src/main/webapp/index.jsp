@@ -5,25 +5,30 @@
 <head>
     <title>Tic-Tac-Toe</title>
     <link href="static/main.css" rel="stylesheet">
+    <script>
+        function redirect(index) {
+            window.location='/logic?click=' + index
+        }
+    </script>
 </head>
 <body>
 <h1>Tic-Tac-Toe</h1>
 
 <table>
     <tr>
-        <td>0</td>
-        <td>1</td>
-        <td>2</td>
+        <td onclick="redirect(0)">0</td>
+        <td onclick="redirect(1)">1</td>
+        <td onclick="redirect(2)">2</td>
     </tr>
     <tr>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
+        <td onclick="redirect(3)">3</td>
+        <td onclick="redirect(4)">4</td>
+        <td onclick="redirect(5)">5</td>
     </tr>
     <tr>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
+        <td onclick="redirect(6)">6</td>
+        <td onclick="redirect(7)">7</td>
+        <td onclick="redirect(8)">8</td>
     </tr>
 </table>
 

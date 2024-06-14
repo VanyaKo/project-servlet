@@ -1,11 +1,14 @@
 package com.tictactoe;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-public class Field {
+public class Field implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 6280251395443048371L;
     private final Map<Integer, Sign> field;
 
     public Field() {
@@ -36,7 +39,7 @@ public class Field {
         return field.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .map(Map.Entry::getValue)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public Sign checkWin() {
@@ -51,9 +54,10 @@ public class Field {
                 List.of(2, 4, 6)
         );
 
-        for (List<Integer> winPossibility : winPossibilities) {
-            if (field.get(winPossibility.get(0)) == field.get(winPossibility.get(1))
-                && field.get(winPossibility.get(0)) == field.get(winPossibility.get(2))) {
+        for(List<Integer> winPossibility : winPossibilities) {
+            if(field.get(winPossibility.get(0)) == field.get(winPossibility.get(1))
+               && field.get(winPossibility.get(0)) == field.get(winPossibility.get(2))
+               && field.get(winPossibility.get(0)) != Sign.EMPTY) {
                 return field.get(winPossibility.get(0));
             }
         }
